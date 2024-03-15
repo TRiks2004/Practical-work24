@@ -1,0 +1,17 @@
+[tool.poetry]
+name = "practical work24"
+version = "0.1.0"
+description = ""
+authors = ["triks <trik0001000@gmail.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.11"
+bottle = "^0.12.25"
+django-environ = "^0.11.2"
+pydantic-settings = "^2.2.1"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"

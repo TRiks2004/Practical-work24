@@ -1,0 +1,14 @@
+
+:root {
+    --main-font: "Handjet", sans-serif;
+}
+
+.handjet-1 {
+    font-family: var(--main-font);
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+    font-variation-settings:
+        "ELGR" 1,
+        "ELSH" 2;
+}

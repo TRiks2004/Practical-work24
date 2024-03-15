@@ -1,0 +1,42 @@
+body {
+    display: flex;
+    flex-direction: column;
+    /* Определяет направление главной оси (по вертикали) */
+    align-items: flex-start;
+    /* Выравнивание элементов по центру по горизонтали */
+    justify-content: flex-start;
+    /* Выравнивание элементов по центру по вертикали */
+    min-height: 100vh;
+    /* Минимальная высота равная высоте окна браузера */
+    margin: 0;
+    /* Убираем отступы у body */
+    background-image: URL('../../static/image/bg_br.png');
+    /* Устанавливаем картинку на фон */
+    background-size: cover;
+    /* Масштабируем фон по размеру окна браузера */
+    background-position: center;
+    /* Выравниваем фон по центру */
+}
+
+.container-header {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: flex-start;
+    padding-top: 1px;
+    padding-bottom: 1px;
+    padding-left: 50px;
+    padding-right: 50px;
+    background: rgba(0, 0, 0, 0.1);
+    height: 200px;
+    width: -webkit-fill-available;
+}
+
+.container-buttons-header {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: center;
+    height: 100%;
+    width: -webkit-fill-available;
+}

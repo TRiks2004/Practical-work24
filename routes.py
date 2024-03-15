@@ -25,11 +25,6 @@ def contact():
     )
 
 @route('/about')
-@view('about')
+@view('layout')
 def about():
-    """Renders the about page."""
-    return dict(
-        title='About',
-        message='Your application description page.',
-        year=datetime.now().year
-    )
+    return dict()
