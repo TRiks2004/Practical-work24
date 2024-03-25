@@ -1,56 +1,64 @@
 /* Стили для основного контейнера */
 .window {
-    position: absolute;
-    top: 0;
-    left: 0;
+    position: absolute; /* Абсолютное позиционирование */
+    top: 0; /* Располагается вверху */
+    left: 0; /* Располагается слева */
     width: 100vw; /* Ширина окна равна ширине видимой области браузера */
     height: 100vh; /* Высота окна равна высоте видимой области браузера */
     overflow: hidden; /* Прячет содержимое, выходящее за границы окна */
-  }
-  
-  /* Стили для первого фрейма */
-  .frame1 {
-    position: absolute;
-    top: 0;
-    left: 0;
+}
+
+/* Стили для первого фрейма */
+.logoFrame {
+    position: absolute; /* Абсолютное позиционирование */
+    top: 0; /* Располагается вверху */
+    left: 0; /* Располагается слева */
     width: 100%; /* Ширина первого фрейма равна ширине окна */
     height: 300px; /* Высота первого фрейма */
     background-color: #000000; /* Цвет фона первого фрейма */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  
-  /* Стили для изображения логотипа */
-  .logo {
+    display: flex; /* Используется flexbox */
+    justify-content: center; /* Выравнивание контента по центру по горизонтали */
+    align-items: center; /* Выравнивание контента по центру по вертикали */
+}
+
+/* Стили для изображения логотипа */
+.logo {
     width: 700px; /* Ширина изображения */
     height: 500px; /* Высота изображения */
-  }
-  
-  .frame2 {
-    position: absolute;
+}
+
+/* Стили для второго фрейма */
+.mainFrame {
+    position: absolute; /* Абсолютное позиционирование */
     top: 300px; /* Отступ от верха окна до второго фрейма */
-    left: 0;
+    left: 0; /* Располагается слева */
     width: 100%; /* Ширина второго фрейма равна ширине окна */
     height: calc(100% - 300px); /* Высота второго фрейма равна оставшейся высоте окна */
     background-color: white; /* Белый фон */
     border: 10px solid black; /* Обводка черного цвета */
-    display: flex;
+    display: flex; /* Используется flexbox */
     flex-direction: column; /* Устанавливаем столбиком */
-    justify-content: flex-start;
-    align-items: flex-start;
+    justify-content: center; /* Центрируем контент по вертикали */
+    align-items: center; /* Центрируем контент по горизонтали */
     padding: 20px; /* Расстояние от краев второго фрейма до подфреймов */
     box-sizing: border-box; /* Учитываем padding в общей высоте */
 }
 
+/* Стили для подфреймов */
 .subframe {
     width: calc(100% - 75px); /* Ширина каждого подфрейма с учетом padding и отступа слева */
     height: 214px; /* Высота каждого подфрейма */
     margin-bottom: 20px; /* Расстояние между подфреймами */
     padding-left: 35px; /* Отступ слева */
     border: 5px solid #000000; /* Граница второго фрейма */
+    position: relative; /* Относительное позиционирование */
+    flex: 1; /* Используется flexbox */
+    display: flex; /* Используется flexbox */
+    justify-content: left; /* Выравнивание контента по левому краю */
+    align-items: left; /* Выравнивание контента по верхнему краю */
 }
 
+/* Стили для каждого подфрейма */
 .subframe:nth-child(1) {
     background-color: #ffffff; /* Цвет первого подфрейма */
 }
@@ -63,57 +71,56 @@
     background-color: #ffffff; /* Цвет третьего подфрейма */
 }
 
+/* Стили для контейнера с текстом */
 .text-container {
-    display: flex;
+    display: flex; /* Используется flexbox */
     justify-content: center; /* Центрируем по горизонтали */
     align-items: center; /* Центрируем по вертикали */
-    height: 100%;
+    height: 100%; /* Высота контейнера равна высоте родителя */
     color: #ff0000; /* Красный цвет текста */
     font-family: 'Poppins', sans-serif; /* Шрифт текста */
     font-size: 100px; /* Размер шрифта текста */
     margin-right: 10px; /* Расстояние между текстами */
     font-weight: bold; /* Жирное начертание текста */
-
 }
 
+/* Стили для контейнера с черным текстом */
 .text-container.black {
     color: #000000; /* Черный цвет текста */
 }
 
-.frame2 {
-    display: flex;
-    justify-content: space-between; /* Распределяем элементы равномерно по горизонтали */
-}
-
-.subframe {
-    position: relative; /* Относительное позиционирование */
-    flex: 1;
-    display: flex; /* Добавляем flex контейнер для подфреймов */
-    justify-content: left; 
-    align-items: left; 
-}
-
+/* Стили для контейнера с кнопками */
 .buttons-frame {
-    position: absolute; /* Абсолютное позиционирование относительно каждого .subframe */
-    top: 7px;
-    right: 0;
-    height: 100%; /* Занимает максимальную высоту родительского контейнера */
+    position: absolute; /* Абсолютное позиционирование */
+    top: 5%; /* Отступ от верхнего края родительского контейнера */
+    right: 0; /* Отступ от правого края родительского контейнера */
+    height: 90%; /* Занимает максимальную высоту родительского контейнера */
     width: 75px; /* Фиксированная ширина 75px */
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    display: flex; /* Используется flexbox */
+    flex-direction: column; /* Выравнивание кнопок по вертикали */
+    justify-content: center; /* Выравнивание кнопок по центру по вертикали */
+    align-items: center; /* Выравнивание кнопок по центру по горизонтали */
+    justify-content: space-around;
 }
-
-.buttons-frame img {
-    margin-bottom: 10px; /* Дополнительный отступ между кнопками */
-}
-
 
 /* Стили для кнопок */
-.button1,
-.button2 {
-    position: absolute;
+.buttons-frame button {
+    background-color: transparent; /* Прозрачный фон кнопок */
+    border: none; /* Убираем границы кнопок */
+    padding: 0; /* Убираем отступы вокруг содержимого кнопок */
+    cursor: pointer; /* Задаем курсор указывающий на то, что это кликабельный элемент */
+}
+
+/* Стили для изображений в кнопках */
+.buttons-frame button img {
+    width: 40px; /* Задаем ширину изображений кнопок */
+    height: 40px; /* Задаем высоту изображений кнопок */
+}
+
+/* Стили для кнопки "ArtsButton" */
+.ArtsButton,
+.homeButton {
+    position: absolute; /* Абсолютное позиционирование */
     font-family: 'Poppins', sans-serif; /* Шрифт текста */
     font-size: 40px; /* Размер шрифта текста */
     font-weight: bold; /* Жирное начертание текста */
@@ -123,47 +130,27 @@
     border: none; /* Убираем границу */
     background: none; /* Убираем фон */
     cursor: pointer; /* Курсор при наведении */
-    text-align: right;
+    text-align: right; /* Выравнивание текста по правому краю */
 }
-/* Позиционирование первой кнопки */
-.button1 {
+
+/* Позиционирование кнопки "ArtsButton" */
+.ArtsButton {
     top: 230px; /* Положение сверху */
     right: 20px; /* Положение справа */
 }
 
-/* Позиционирование второй кнопки */
-.button2 {
+/* Позиционирование кнопки "homeButton" */
+.homeButton {
     top: 230px; /* Положение сверху */
     right: 150px; /* Положение справа */
 }
 
-.button1:hover {
-    color: #ff0000; /* Цвет текста кнопки */
+/* Эффект при наведении на кнопку "ArtsButton" */
+.ArtsButton:hover {
+    color: #ff0000; /* Изменение цвета текста при наведении */
 }
 
-.button2:hover {
-    color: #ff0000; /* Цвет текста кнопки */
-}
-img {
-    width: 50px; /* Set the width of the images */
-    height: 50px; /* Set the height of the images */
-    margin-bottom: 10px; /* Optional spacing between images */
-}
-
-.buttons-frame {
-    display: flex;
-    justify-content: space-around; /* Выравнивание кнопок по горизонтали */
-    align-items: center; /* Выравнивание кнопок по вертикали */
-}
-
-.buttons-frame button {
-    background-color: transparent; /* Прозрачный фон кнопок */
-    border: none; /* Убираем границы кнопок */
-    padding: 0; /* Убираем отступы вокруг содержимого кнопок */
-    cursor: pointer; /* Задаем курсор указывающий на то, что это кликабельный элемент */
-}
-
-.buttons-frame button img {
-    width: 50px; /* Задаем ширину изображений кнопок */
-    height: 50px; /* Задаем высоту изображений кнопок */
+/* Эффект при наведении на кнопку "homeButton" */
+.homeButton:hover {
+    color: #ff0000; /* Изменение цвета текста при наведении */
 }
