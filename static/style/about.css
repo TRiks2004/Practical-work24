@@ -1,0 +1,169 @@
+/* Стили для основного контейнера */
+.window {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw; /* Ширина окна равна ширине видимой области браузера */
+    height: 100vh; /* Высота окна равна высоте видимой области браузера */
+    overflow: hidden; /* Прячет содержимое, выходящее за границы окна */
+  }
+  
+  /* Стили для первого фрейма */
+  .frame1 {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%; /* Ширина первого фрейма равна ширине окна */
+    height: 300px; /* Высота первого фрейма */
+    background-color: #000000; /* Цвет фона первого фрейма */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  /* Стили для изображения логотипа */
+  .logo {
+    width: 700px; /* Ширина изображения */
+    height: 500px; /* Высота изображения */
+  }
+  
+  .frame2 {
+    position: absolute;
+    top: 300px; /* Отступ от верха окна до второго фрейма */
+    left: 0;
+    width: 100%; /* Ширина второго фрейма равна ширине окна */
+    height: calc(100% - 300px); /* Высота второго фрейма равна оставшейся высоте окна */
+    background-color: white; /* Белый фон */
+    border: 10px solid black; /* Обводка черного цвета */
+    display: flex;
+    flex-direction: column; /* Устанавливаем столбиком */
+    justify-content: flex-start;
+    align-items: flex-start;
+    padding: 20px; /* Расстояние от краев второго фрейма до подфреймов */
+    box-sizing: border-box; /* Учитываем padding в общей высоте */
+}
+
+.subframe {
+    width: calc(100% - 75px); /* Ширина каждого подфрейма с учетом padding и отступа слева */
+    height: 214px; /* Высота каждого подфрейма */
+    margin-bottom: 20px; /* Расстояние между подфреймами */
+    padding-left: 35px; /* Отступ слева */
+    border: 5px solid #000000; /* Граница второго фрейма */
+}
+
+.subframe:nth-child(1) {
+    background-color: #ffffff; /* Цвет первого подфрейма */
+}
+
+.subframe:nth-child(2) {
+    background-color: #ffffff; /* Цвет второго подфрейма */
+}
+
+.subframe:nth-child(3) {
+    background-color: #ffffff; /* Цвет третьего подфрейма */
+}
+
+.text-container {
+    display: flex;
+    justify-content: center; /* Центрируем по горизонтали */
+    align-items: center; /* Центрируем по вертикали */
+    height: 100%;
+    color: #ff0000; /* Красный цвет текста */
+    font-family: 'Poppins', sans-serif; /* Шрифт текста */
+    font-size: 100px; /* Размер шрифта текста */
+    margin-right: 10px; /* Расстояние между текстами */
+    font-weight: bold; /* Жирное начертание текста */
+
+}
+
+.text-container.black {
+    color: #000000; /* Черный цвет текста */
+}
+
+.frame2 {
+    display: flex;
+    justify-content: space-between; /* Распределяем элементы равномерно по горизонтали */
+}
+
+.subframe {
+    position: relative; /* Относительное позиционирование */
+    flex: 1;
+    display: flex; /* Добавляем flex контейнер для подфреймов */
+    justify-content: left; 
+    align-items: left; 
+}
+
+.buttons-frame {
+    position: absolute; /* Абсолютное позиционирование относительно каждого .subframe */
+    top: 7px;
+    right: 0;
+    height: 100%; /* Занимает максимальную высоту родительского контейнера */
+    width: 75px; /* Фиксированная ширина 75px */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.buttons-frame img {
+    margin-bottom: 10px; /* Дополнительный отступ между кнопками */
+}
+
+
+/* Стили для кнопок */
+.button1,
+.button2 {
+    position: absolute;
+    font-family: 'Poppins', sans-serif; /* Шрифт текста */
+    font-size: 40px; /* Размер шрифта текста */
+    font-weight: bold; /* Жирное начертание текста */
+    width: 211px; /* Ширина кнопки */
+    height: 91px; /* Высота кнопки */
+    color: #FFFFFF; /* Цвет текста кнопки */
+    border: none; /* Убираем границу */
+    background: none; /* Убираем фон */
+    cursor: pointer; /* Курсор при наведении */
+    text-align: right;
+}
+/* Позиционирование первой кнопки */
+.button1 {
+    top: 230px; /* Положение сверху */
+    right: 20px; /* Положение справа */
+}
+
+/* Позиционирование второй кнопки */
+.button2 {
+    top: 230px; /* Положение сверху */
+    right: 150px; /* Положение справа */
+}
+
+.button1:hover {
+    color: #ff0000; /* Цвет текста кнопки */
+}
+
+.button2:hover {
+    color: #ff0000; /* Цвет текста кнопки */
+}
+img {
+    width: 50px; /* Set the width of the images */
+    height: 50px; /* Set the height of the images */
+    margin-bottom: 10px; /* Optional spacing between images */
+}
+
+.buttons-frame {
+    display: flex;
+    justify-content: space-around; /* Выравнивание кнопок по горизонтали */
+    align-items: center; /* Выравнивание кнопок по вертикали */
+}
+
+.buttons-frame button {
+    background-color: transparent; /* Прозрачный фон кнопок */
+    border: none; /* Убираем границы кнопок */
+    padding: 0; /* Убираем отступы вокруг содержимого кнопок */
+    cursor: pointer; /* Задаем курсор указывающий на то, что это кликабельный элемент */
+}
+
+.buttons-frame button img {
+    width: 50px; /* Задаем ширину изображений кнопок */
+    height: 50px; /* Задаем высоту изображений кнопок */
+}
