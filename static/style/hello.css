@@ -9,7 +9,7 @@
   }
   
   /* Стили для первого фрейма */
-  .frame1 {
+  .logoFrame {
     position: absolute;
     top: 0;
     left: 0;
@@ -28,7 +28,7 @@
   }
   
 /* Стили для второго фрейма */
-.frame2 {
+.mainFrame {
     position: absolute;
     top: 300px; /* Отступ от верха окна до второго фрейма */
     left: 0;
@@ -145,8 +145,8 @@
 }
 
 /* Стили для кнопок */
-.button1,
-.button2 {
+.artsButton,
+.aboutButton {
     position: absolute;
     font-family: 'Poppins', sans-serif; /* Шрифт текста */
     font-size: 60px; /* Размер шрифта текста */
@@ -161,20 +161,20 @@
 }
 
 /* Позиционирование первой кнопки */
-.button1 {
+.artsButton {
     top: 125px; /* Положение сверху */
     right: 20px; /* Положение справа */
 }
 
 /* Позиционирование второй кнопки */
-.button2 {
+.aboutButton {
     top: 175px; /* Положение сверху */
     right: 20px; /* Положение справа */
 }
 
 /* При наведении кнопки становятся красными */
-.button1:hover,
-.button2:hover {
+.artsButton:hover,
+.aboutButton:hover {
     color: #FF0000; /* Цвет текста кнопки при наведении */
 }
 
