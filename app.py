@@ -16,7 +16,7 @@ if __name__ == '__main__':
     HOST = os.environ.get('SERVER_HOST', 'localhost')
     
     try:
-        PORT = int(os.environ.get('SERVER_PORT', '5560'))
+        PORT = int(os.environ.get('SERVER_PORT', '5561'))
     except ValueError:
         PORT = 5555
 
