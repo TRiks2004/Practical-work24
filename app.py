@@ -4,26 +4,28 @@ import sys
 
 import routes
 
-if '--debug' in sys.argv[1:] or 'SERVER_DEBUG' in os.environ:
+if "--debug" in sys.argv[1:] or "SERVER_DEBUG" in os.environ:
     bottle.debug(True)
+
 
 def wsgi_app():
     return bottle.default_app()
 
-if __name__ == '__main__':
+
+if __name__ == "__main__":
     PROJECT_ROOT = os.path.abspath(os.path.dirname(__file__))
-    STATIC_ROOT = os.path.join(PROJECT_ROOT, 'static').replace('\\', '/')
-    HOST = os.environ.get('SERVER_HOST', 'localhost')
-    
+    STATIC_ROOT = os.path.join(PROJECT_ROOT, "static").replace("\\", "/")
+    HOST = os.environ.get("SERVER_HOST", "localhost")
+
     try:
-        PORT = int(os.environ.get('SERVER_PORT', '5562'))
+        PORT = int(os.environ.get("SERVER_PORT", "5564"))
     except ValueError:
         PORT = 5555
 
-    @bottle.route('/static/<filepath:path>')
+    @bottle.route("/static/<filepath:path>")
     def server_static(filepath):
         return bottle.static_file(filepath, root=STATIC_ROOT)
 
     bottle.debug(True)
     # Starts a local test server.
-    bottle.run(server='wsgiref', host=HOST, port=PORT, reloader=True)
+    bottle.run(server="wsgiref", host=HOST, port=PORT, reloader=True)
