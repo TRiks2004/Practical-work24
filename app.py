@@ -1,31 +1,51 @@
-import bottle
-import os
-import sys
+# Это основной модуль приложения. Он отвечает за запуск веб-сервера Bottle и подключение к нему статических файлов.
 
+import bottle
+
+# Модуль, который содержит все маршруты приложения.
 import routes
 
-if "--debug" in sys.argv[1:] or "SERVER_DEBUG" in os.environ:
-    bottle.debug(True)
+# Модуль, который содержит настройки приложения.
+from common import settings_app, SettingsAPP
+
+# Модуль, который предоставляет функции для работы с путями файлов.
+import pathlib
 
 
-def wsgi_app():
-    return bottle.default_app()
+def include_static_files(static_root: str) -> None:
+    """
+    Функция, которая подключает статические файлы к приложению.
+
+    param static_root: корневой каталог статических файлов.
+    """
+    BASE_DIR = pathlib.Path(__file__).parent
+
+    @bottle.route(f"/static/<filepath:path>")
+    def server_static(filepath):
+        """
+        Маршрут, который отвечает за отдачу статических файлов.
+
+        param filepath: путь к файлу.
+        """
+        return bottle.static_file(filepath, root=f"{BASE_DIR}/{static_root}")
+
+
+def main(settings: SettingsAPP):
+    """
+    Функция, которая запускает веб-сервер Bottle с настройками, заданными в settings_app.
+
+    param settings: настройки приложения.
+    """
+    include_static_files(settings.static_root)
+
+    bottle.run(
+        server=settings.server,
+        host=settings.host,
+        port=settings.port,
+        reloader=settings.reloader,
+        debug=settings.debug,
+    )
 
 
 if __name__ == "__main__":
-    PROJECT_ROOT = os.path.abspath(os.path.dirname(__file__))
-    STATIC_ROOT = os.path.join(PROJECT_ROOT, "static").replace("\\", "/")
-    HOST = os.environ.get("SERVER_HOST", "localhost")
-
-    try:
-        PORT = int(os.environ.get("SERVER_PORT", "5564"))
-    except ValueError:
-        PORT = 5555
-
-    @bottle.route("/static/<filepath:path>")
-    def server_static(filepath):
-        return bottle.static_file(filepath, root=STATIC_ROOT)
-
-    bottle.debug(True)
-    # Starts a local test server.
-    bottle.run(server="wsgiref", host=HOST, port=PORT, reloader=True)
+    main(settings_app)
