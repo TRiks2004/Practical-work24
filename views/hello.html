@@ -7,7 +7,7 @@
     <!-- Название страницы -->
     <title>Berserk</title>
     <!-- Подключение внешнего CSS-файл для стилизации страницы -->
-    <link rel="stylesheet" href="hello.css">
+    <link rel="stylesheet" href="static/style/hello.css">
 </head>
 <body>
     <!-- Общий контейнер для всего контента -->
@@ -15,14 +15,14 @@
         <!-- Контейнер для логотипа -->
         <div class="logoFrame">
             <!-- Логотип в формате SVG -->
-            <img src="icons/logo.svg" alt="Логотип" class="logo">
+            <img src="static/icons/logo.svg" alt="Логотип" class="logo">
         </div>
         <!-- Основной контейнер для контента -->
         <div class="mainFrame">
             <!-- Внутренний контейнер -->
             <div class="subframe">
                 <!-- Картинка -->
-                <img src="icons\image4.jpg" alt="Картинка" class="image">
+                <img src="static/icons/image4.jpg" alt="Картинка" class="image">
                 <!-- Текст на японском языке -->
                 <div class="text">エクリプス</div>
                 <!-- Текст на японском языке -->
@@ -35,11 +35,12 @@
                 <!-- Описание сюжета манги Berserk -->
                 <div class="nested-text2">"Eclipse" in Berserk is an epic saga depicting struggles, power-hungriness, and dark forces. The main protagonist, Guts, seeks revenge against his former leader Griffith, who betrayed their band. Along his journey, he encounters various dangers, demons, and his own inner demons. The richly woven plot, filled with battles, friendship, and betrayal, makes "Eclipse" a magnificent work of dark fantasy genre. In the heart of the tumultuous world of 'Eclipse', alliances shift like shadows, and every step forward brings Guts closer to the heart of darkness he seeks to confront.</div>
                 <!-- Картинка в правом нижнем углу -->
-                <img src="icons\image5.jpg" alt="Картинка" class="bottom-right-image">
+                <img src="static/icons/image5.jpg" alt="Картинка" class="bottom-right-image">
                 <!-- Кнопка "ARTS" -->
-                <button class="artsButton">ARTS</button>
+                <a href="/arts"><button class="artsButton">ARTS</button></a>
                 <!-- Кнопка "ABOUT" -->
-                <button class="aboutButton">ABOUT</button>
+                <a href="/about"><button class="aboutButton">ABOUT</button></a>
+                
                 <!-- Дополнительный текст на японском языке -->
                 <div class="additional-text">あなたの友人</div>
             </div>
