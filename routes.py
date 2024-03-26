@@ -1,25 +1,21 @@
-"""
-Routes and views for the bottle application.
-"""
-
-from bottle import route, view, redirect
+from bottle import route, view, redirect, template
 from datetime import datetime
 
 @route('/')
-@route('/home')
-def home():
-    return redirect('/about')
-
-@route('/contact')
-@view('contact')
-def contact():
-    return dict(
-        title='Contact',
-        message='Your contact page.',
-        year=datetime.now().year
+@route('/hello')
+def hello():
+    return template(
+        'views/hello.html'
     )
 
 @route('/about')
-@view('layout')
 def about():
-    return dict()
+    return template(
+        'views/about.html'
+    )
+    
+@route('/arts')
+def arts():
+    return template(
+        'views/arts.html'
+    )
