@@ -10,13 +10,30 @@ sqlite_db = SqliteDatabase(
 ModelType = TypeVar('ModelType', bound=Model)
 
 class BaseModel(Model):
-    
+    """
+    Базовая модель для всех моделей в базе данных.
+    """
+
+    class Meta:
+        """
+        Настройки метаданных модели.
+        """
+        database = sqlite_db
+        """
+        База данных, к которой привязана эта модель.
+        """
+
     @classmethod
     def get_all_rows(cls: Type[ModelType]) -> Iterable[ModelType]:
+        """
+        Получить все строки из таблицы, соответствующей данной модели.
+        
+        Возвращает итератор с экземплярами модели.
+        
+        :return: Итератор с экземплярами модели.
+        :rtype: Iterable[BaseModel]
+        """
         return list(cls.select())
-    
-    class Meta:
-        database = sqlite_db
 
 
 def __create_table(model: BaseModel):
