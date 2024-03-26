@@ -1,19 +1,11 @@
-from peewee import *
+from peewee import SqliteDatabase, Model
+
+from typing import Iterable
 
 sqlite_db = SqliteDatabase(
-    'datebase/base.db', 
-    pragmas={
-        'journal_mode': 'wal',
-        'cache_size': -1024 * 64
-    }
+    "datebase/base.db",
+    pragmas={"journal_mode": "wal", "cache_size": -1024 * 64},
 )
-
-
-# Arts
-# hieroglyph - иероглиф
-# name - название
-# quote - цитата
-# pathImage - путь к изображению
 
 
 class BaseModel(Model):
@@ -21,9 +13,11 @@ class BaseModel(Model):
         database = sqlite_db
 
 
-def create_table(model: BaseModel):
+def __create_table(model: BaseModel):
     if not model.table_exists():
         model.create_table(safe=True)
 
 
-
+def create_tables(models: Iterable[BaseModel]):
+    for model in models:
+        __create_table(model)

@@ -11,6 +11,12 @@ from common import settings_app, SettingsAPP
 # Модуль, который предоставляет функции для работы с путями файлов.
 import pathlib
 
+from datebase import create_tables, models
+
+
+def up() -> None:
+    create_tables(models.get_models())
+
 
 def include_static_files(static_root: str) -> None:
     """
@@ -36,6 +42,8 @@ def main(settings: SettingsAPP):
 
     param settings: настройки приложения.
     """
+    up()
+
     include_static_files(settings.static_root)
 
     bottle.run(
