@@ -9,6 +9,11 @@ sqlite_db = SqliteDatabase(
 
 
 class BaseModel(Model):
+    
+    @classmethod
+    def get_all_rows(cls):
+        return list(cls.select())
+    
     class Meta:
         database = sqlite_db
 

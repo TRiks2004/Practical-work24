@@ -13,28 +13,16 @@
             <button class="aboutButton">ABOUT</button>
             <button class="homeButton">HOME</button>
         </div>
+        
         <div class="mainFrame">
-            <div class="subframe">
-                <div class="text-container">道</div>
-                <img src="static\icons\guts.png" class="image-top-right">
-                <div class="text-bottom-left">GUTS</div>
-                <div class="text-bottom-center">Guts is the main character in the manga and anime "Berserk" created by Kentaro Miura. He's known for his exceptional combat skills, wielding a massive sword.</div>
-            </div>
-            
-            <div class="subframe">
-                <div class="text-container">夢</div>
-                <img src="static\icons\griffith.png" class="image-top-right">
-                <div class="text-bottom-left">GRIFFITH</div>
-                <div class="text-bottom-center">Griffith is the charismatic leader of the "Band of the Hawk" in "Berserk." His ambition for greatness leads to betrayal and tragedy for himself and his comrades.</div>
-
-            </div>
-
-            <div class="subframe">
-                <div class="text-container">愛</div>
-                <img src="static\icons\caska.png" class="image-top-right">
-                <div class="text-bottom-left">CASKA</div>
-                <div class="text-bottom-center">Casca is a skilled warrior in "Berserk" who forms deep bonds with Guts and Griffith. Her journey is marked by resilience, trauma, and redemption.</div>
-            </div>
+            % for art in dict['arts']:
+                <div class="subframe">
+                    <div class="text-container">{{art.hieroglyph}}</div>
+                    <img src="{{art.pathImage}}" alt="Картинка" class="image-top-right">
+                    <div class="text-bottom-left">{{art.name}}</div>
+                    <div class="text-bottom-center">{{art.quote}}</div>
+                </div>
+            % end
         </div>
     </div>
 </body>
