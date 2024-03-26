@@ -13,7 +13,6 @@ def home():
 @route('/contact')
 @view('contact')
 def contact():
-    """Renders the contact page."""
     return dict(
         title='Contact',
         message='Your contact page.',
