@@ -1,5 +1,6 @@
 from .settings import env, BaseSettings
 
+
 class SettingsAPP(BaseSettings):
     """
     Класс, представляющий настройки приложения. Содержит поля, которые определяют тип сервера, хост, порт,
@@ -15,6 +16,7 @@ class SettingsAPP(BaseSettings):
         debug (bool): Флаг активации режима отладки. По умолчанию True.
         static_root (str): Корневая папка статических файлов. По умолчанию "static".
     """
+
     server: str = env.str("SERVER_APP", default="wsgiref")
     host: str = env.str("SERVER_HOST", default="localhost")
     port: int = env.int("SERVER_PORT", default=5565)

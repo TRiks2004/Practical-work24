@@ -15,5 +15,5 @@ environ.Env.read_env(BASE_DIR / ".env")
 # Комментарий:
 # BASE_DIR - это абсолютный путь к родительскому каталогу текущего модуля.
 # env - это объект окружения, который позволяет читать переменные из файла .env.
-# environ.Env.read_env(BASE_DIR / ".env") - это вызов метода read_env() 
+# environ.Env.read_env(BASE_DIR / ".env") - это вызов метода read_env()
 #   объекта env с аргументом, который является путем к файлу .env.
