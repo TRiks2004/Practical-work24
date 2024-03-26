@@ -14,35 +14,24 @@
             <button class="homeButton">HOME</button>
         </div>
         <div class="mainFrame">
-            <div class="subframe">
-                <div class="text-container">道</div>
-                <div class="text-container black">KIRILL GORYACHKIN</div>
-                <div class="buttons-frame">
-                    <button onclick="window.location.href='ссылка_на_GitHub';"><img src="static\icons\git.png" alt="Image 1"></button>
-                    <button onclick="window.location.href='ссылка_на_Telegram';"><img src="static\icons\telegram.png" alt="Image 2"></button>
-                    <button onclick="window.location.href='mailto:ваш_адрес_электронной_почты';"><img src="static\icons\email.png" alt="Image 3"></button>
+
+            % for art in dict['about']:
+                <div class="subframe">
+                    <div class="text-container">{{art.hieroglyph}}</div>
+                    <div class="text-container black">{{art.name}} {{art.surname}}</div>
+                    <div class="buttons-frame">
+                        <button onclick="window.location.href='{{art.href_git}}';">
+                            <img src="static\icons\git.png" alt="Image 1"/>
+                        </button>
+                        <button onclick="window.location.href='{{art.href_telegram}}';">
+                            <img src="static\icons\telegram.png" alt="Image 2"/>
+                        </button>
+                        <button onclick="window.location.href='mailto:{{art.href_email}}';">
+                            <img src="static\icons\email.png" alt="Image 3">
+                        </button>
+                    </div>
                 </div>
-            
-            </div>
-            <div class="subframe">
-                <div class="text-container">夢</div>
-                <div class="text-container black">RUSLAN OSIPOV</div>
-                <div class="buttons-frame">
-                    <button onclick="window.location.href='ссылка_на_GitHub';"><img src="static\icons\git.png" alt="Image 1"></button>
-                    <button onclick="window.location.href='ссылка_на_Telegram';"><img src="static\icons\telegram.png" alt="Image 2"></button>
-                    <button onclick="window.location.href='mailto:ваш_адрес_электронной_почты';"><img src="static\icons\email.png" alt="Image 3"></button>
-                </div>
-            </div>
-            <div class="subframe">
-                <div class="text-container">愛</div>
-                <div class="text-container black">VENIAMIN BURLAKOV</div>
-                <div class="buttons-frame">
-                    <button onclick="window.location.href='ссылка_на_GitHub';"><img src="static\icons\git.png" alt="Image 1"></button>
-                    <button onclick="window.location.href='ссылка_на_Telegram';"><img src="static\icons\telegram.png" alt="Image 2"></button>
-                    <button onclick="window.location.href='mailto:ваш_адрес_электронной_почты';"><img src="static\icons\email.png" alt="Image 3"></button>
-                </div>
-                
-            </div>
+            % end
         </div>
     </div>
 </body>

@@ -12,6 +12,9 @@ class ArtsModel(BaseModel):
     quote = TextField()
     pathImage = CharField()
     
+    class Meta:
+        table_name = 'arts'
+    
     @classmethod
     def get_all_rows(cls):
         model = super(ArtsModel, cls).get_all_rows()
@@ -22,11 +25,25 @@ class ArtsModel(BaseModel):
                 hieroglyph=model.hieroglyph,
                 name=model.name,
                 quote=model.quote,
-                pathImage=f'static\icons\{model.pathImage}'
+                pathImage=rf'static\icons\{model.pathImage}'
             ) for model in model
         ]
 
 
+class AboutModel(BaseModel):
+    id_art = AutoField(primary_key=True)
+    hieroglyph = CharField()
+    
+    name = CharField()
+    surname = CharField()
+    
+    href_git = CharField()
+    href_telegram = CharField()
+    href_email = CharField()
+        
+    class Meta:
+        table_name = 'about'
+
 
 def get_models() -> Iterable[BaseModel]:
-    return [ArtsModel]
+    return [ArtsModel, AboutModel]

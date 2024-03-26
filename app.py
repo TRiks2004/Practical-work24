@@ -44,6 +44,8 @@ def main(settings: SettingsAPP):
     """
     up()
 
+    print(f"Starting server...\n{settings}")
+    
     include_static_files(settings.static_root)
 
     bottle.run(
