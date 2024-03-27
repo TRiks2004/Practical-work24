@@ -4,6 +4,5 @@ __pycache__/
 
 .env
 
-
 datebase/base.db-shm
 datebase/base.db-wal

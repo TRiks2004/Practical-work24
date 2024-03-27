@@ -7,7 +7,8 @@ sqlite_db = SqliteDatabase(
     pragmas={"journal_mode": "wal", "cache_size": -1024 * 64},
 )
 
-ModelType = TypeVar('ModelType', bound=Model)
+ModelType = TypeVar("ModelType", bound=Model)
+
 
 class BaseModel(Model):
     """
@@ -18,6 +19,7 @@ class BaseModel(Model):
         """
         Настройки метаданных модели.
         """
+
         database = sqlite_db
         """
         База данных, к которой привязана эта модель.
@@ -27,9 +29,9 @@ class BaseModel(Model):
     def get_all_rows(cls: Type[ModelType]) -> Iterable[ModelType]:
         """
         Получить все строки из таблицы, соответствующей данной модели.
-        
+
         Возвращает итератор с экземплярами модели.
-        
+
         :return: Итератор с экземплярами модели.
         :rtype: Iterable[BaseModel]
         """
