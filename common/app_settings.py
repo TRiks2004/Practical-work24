@@ -18,8 +18,8 @@ class SettingsAPP(BaseSettings):
     """
 
     server: str = env.str("SERVER_APP", default="wsgiref")
-    host: str = env.str("SERVER_HOST", default="localhost")
-    port: int = env.int("SERVER_PORT", default=5565)
+    host: str = env.str("SERVER_HOST_APP", default="localhost")
+    port: int = env.int("SERVER_PORT_APP", default=5565)
     reloader: bool = env.bool("RELOADER_APP", default=True)
     debug: bool = env.bool("DEBUG_APP", default=True)
 
@@ -27,3 +27,5 @@ class SettingsAPP(BaseSettings):
 
 
 settings_app = SettingsAPP()  # Создание экземпляра класса настроек приложения.
+
+print(f"Settings: {settings_app}")

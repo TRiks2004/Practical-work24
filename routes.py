@@ -3,6 +3,8 @@ from datetime import datetime
 
 from enum import Enum
 
+from datebase import models
+
 
 class Views(Enum):
     hello = "hello"
@@ -66,9 +68,14 @@ def hello():
 
 @route(Routes.get_route_about())
 def about():
-    return template(Views.get_view_about())
+    return template(
+        Views.get_view_about(),
+        dict={"about": models.AboutModel.get_all_rows()},
+    )
 
 
 @route(Routes.get_route_arts())
 def arts():
-    return template(Views.get_view_arts())
+    return template(
+        Views.get_view_arts(), dict={"arts": models.ArtsModel.get_all_rows()}
+    )
